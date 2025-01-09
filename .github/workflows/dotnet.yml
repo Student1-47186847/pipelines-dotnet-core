@@ -42,24 +42,9 @@ jobs:
   ignore: Do not output any warnings or errors, the action does not fail
   if-no-files-found: warn
   # optional, default is warn
-deploy: 
-    runs-on: ubuntu-latest
-    needs: build 
-    steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v4.1.8
-      with:
-        name: webapp
-        path: webapp
-    - name: Deploy web app
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: GitHubApp-47186847
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
-        package: webapp  
-  
+ 
   # Duration after which artifact will expire in days. 0 means using default retention.
-  #Minimum 1 day. Maximum 90 days unless changed from the repository settings page.
+  #  Minimum 1 day. Maximum 90 days unless changed from the repository settings page.
 
     retention-days: # optional
     # The level of compression for Zlib to be applied to the artifact archive. The value can range from 0 to 9: - 0: No compression - 1: Best speed - 6: Default compression (same as GNU Gzip) - 9: Best compression Higher levels will result in better compression, but will take longer to complete. For large files that are not easily compressed, a value of 0 is recommended for significantly faster uploads.
