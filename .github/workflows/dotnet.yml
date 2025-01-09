@@ -30,7 +30,7 @@ jobs:
       run: dotnet publish -c Release -o website
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.5.0
-        with:
+      with:
     # Artifact name
           name: # optional, default is artifact
     # A file, directory or wildcard pattern that describes what to upload
